@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.herojit.srijantask.viewsmodel.LoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:orientation="vertical">
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginTop="@dimen/margin_100"
+            android:layout_marginRight="@dimen/margin_20"
+            android:layout_marginBottom="@dimen/margin_20"
+            android:gravity="center"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/margin_20">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_300sdp"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_marginRight="@dimen/margin_20"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/txt_login"
+                    style="@style/simpletextHeadingblack_x1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:gravity="center"
+                    android:text="@string/Login" />
+
+                <EditText
+                    android:id="@+id/edit_username"
+                    style="@style/edittextemail_user"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_25"
+                    android:background="@drawable/line"
+                    android:hint="@string/Username"
+                    app:addTextChangedListener="@{model.getUsernameTextWatcher}" />
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:background="@drawable/line"
+                    android:gravity="center">
+
+
+                    <EditText
+                        android:id="@+id/edit_password"
+                        style="@style/edittextemail_l"
+                        android:layout_width="fill_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.8"
+                        android:background="@null"
+                        android:hint="@string/Password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        app:addTextChangedListener="@{model.getPasswordTextWatcher}" />
+
+                    <ImageView
+                        android:id="@+id/showpassword"
+                        android:layout_width="@dimen/margin_15"
+                        android:layout_height="@dimen/margin_15"
+                        android:layout_gravity="center"
+                        android:onClick="@{model::onshow}"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:background="@drawable/icon_view_s"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/hidepassword"
+                        android:layout_width="@dimen/margin_15"
+                        android:layout_height="@dimen/margin_15"
+                        android:layout_gravity="center"
+                        android:onClick="@{model::onhide}"
+                        android:layout_marginRight="@dimen/margin_10"
+                        android:background="@drawable/icon_view" />
+                </TableRow>
+
+                <Button
+                    android:id="@+id/btn_login"
+                    style="@style/buttontext_m"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:background="@drawable/btn_bg_gray"
+                    android:onClick="@{model::onLoginClicked}"
+                    android:text="@string/Login" />
+
+                <TextView
+                    style="@style/simpletextQuestionblack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:text="@string/Version" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <TextView
+            style="@style/simpletextHeading_25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/height_60"
+            android:text="@string/app_name" />
+    </LinearLayout>
+</layout>
